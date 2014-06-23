@@ -56,8 +56,10 @@ window.onload = function() {
 
 	for(var i = 0,count = bbs.length;i < count;i++) {
 		var bbButton = document.getElementById(bbs[i]);
-		bbButton.onclick = function() {
-			showNashRange(i);
-		}
-	}
+		bbButton.onclick = (function(i_c){
+      return function(){
+			  showNashRange(i_c);
+      }
+    })(i)
+}
 }
